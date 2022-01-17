@@ -12,5 +12,17 @@ body{
     margin: 50px;
 }
 
+.calc-container{
+    font-size: 1.2em;
+}
 
+.highlighted-text{
+    color:orange;
+    text-decoration: underline;
+    cursor:pointer;
 
+}
+
+#total-amount{
+    color:orange;
+}
