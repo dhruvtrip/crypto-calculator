@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>crypto calculator</title>
+    <base href="/">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Crypto Calculator 🧮</h1>
-    <h2>The ultimate stop to calculate your gains &#128184;</h2>
+    <h1 class="main-heading">Crypto Calculator 🧮</h1>
+    <h2 class="sub-heading">The ultimate stop to calculate your gains &#128184;</h2>
     <div class="calc-container">
-        <p>If I <span class="highlighted-text" id="invest-link">invest</span> <span class="highlighted-text" id="invest-amount">$X</span> in <span class="highlighted-text" id="crypto-name">Crypto Name</span> today and it goes to <span class="highlighted-text" id="crypto-price">$Y</span> per coin it would be worth:
+        <p>If I <span class="highlighted-text" id="invest-link">invest</span> $ <input type= "number" class="highlighted-text" id="invest-amount" value="0"> in <span class="highlighted-text" id="crypto-name">Crypto Name</span> <span id="generic-text-1">today and it goes to $</span>  <input type= "number" class="highlighted-text" id="crypto-price" value="0"> per coin it would be worth:
             = <span id="total-amount">$A</span>
         </p>
     </div>
