@@ -23,25 +23,46 @@ investLink.addEventListener('click', changeCalculator =>{
 
 //fetching coin data from coinranking's api - json
 
-fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "coinranking1.p.rapidapi.com",
-		"x-rapidapi-key": "eea92ee8b8mshf9664ba0f036a02p1cc450jsneb4c624ca4fa"
-	}
-})
-.then(response => {
-	console.log(response.json()
-  .then(response=>{
-    console.log(response)
-  }));
-})
-.catch(err => {
-	console.error(err);
+// fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "coinranking1.p.rapidapi.com",
+// 		"x-rapidapi-key": "eea92ee8b8mshf9664ba0f036a02p1cc450jsneb4c624ca4fa"
+// 	}
+// })
+// .then(response => {
+// 	response.json()
+//   .then(response=>{
+//     console.log(response)
+//   });
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
+
+//async-await implementation to get data
+const getCoinData = async () =>{
+    const response = await fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "coinranking1.p.rapidapi.com",
+        "x-rapidapi-key": "eea92ee8b8mshf9664ba0f036a02p1cc450jsneb4c624ca4fa"
+      }
+    })
+    const coinData = await response.json();
+    //console.log(coinData); 
+    
+    //parsing through json response to get crypto currency prices
+    let coinsArray = coinData.data.coins;
+      coinsArray.forEach(element => {
+      console.log(element.price)
+    });  
+    
+}
+
+getCoinData().catch(err => {
+  console.log("ERROR");
 });
-
-//displaying top three crypto prices
-
 
 
 //add click event on the crypto name tag
