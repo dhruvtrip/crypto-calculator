@@ -1,4 +1,5 @@
 import COIN_RANKING_API_KEY from "/apikey.js"
+
 let investLink = document.getElementById('invest-link');
 let investAmount = document.getElementById('invest-amount');
 let cryptoName = document.getElementById('crypto-name');
@@ -12,7 +13,7 @@ investLink.addEventListener('click', changeCalculator =>{
     //toggle feature
     if (investLink.innerHTML === "invest") { 
         investLink.innerHTML = "invested";
-        genericText.innerHTML = `on ${addDateFormat()}`; //need to add tag here
+        genericText.innerHTML = `on <input type="date" class="highlighted-text"></input>`;
         cryptoPrice.remove();
       } else {
         investLink.innerHTML = "invest";
@@ -49,15 +50,5 @@ getCoinData().catch(err => {
 //add click event on the crypto name tag
 cryptoName.addEventListener('click', showCryptoList=>{
   console.log("123")
-})
-
-
-//function to add new Date tag - creating new span tag with an existing class 
-
-// const addDateFormat = function (){
-//     let dateVariable = document.createElement("span");
-//     dateVariable.setAttribute('class','highlighted-text');
-//     cryptoName.appendChild(dateVariable);
-//     console.log(dateVariable)
-// };
+});
 
