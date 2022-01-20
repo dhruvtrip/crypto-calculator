@@ -7,7 +7,7 @@
     <title>crypto calculator</title>
     <base href="/">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 </head>
 
 <body>
@@ -17,7 +17,13 @@
         <p>If I <span class="highlighted-text" id="invest-link">invest</span> $ <input type= "number" class="highlighted-text" id="invest-amount" value="0"> in <span class="highlighted-text" id="crypto-name">Crypto Name</span> <span id="generic-text-1">today and it goes to $</span>  <input type= "number" class="highlighted-text" id="crypto-price" value="0"> per coin it would be worth:
             = <span id="total-amount">$A</span>
         </p>
+        <div class="chart-container">
+            <p>Top three crypto prices:
+                <li class="list-el">BTC: <span id="btc-price">XXXX</span></li>
+                <li class="list-el">ETH: <span id="eth-price">XXXX</span></li>
+            </p>
+        </div>
     </div>
-<script src = "script.js"></script>
+<script type="module" src = "script.js"></script>
 </body>
 </html>

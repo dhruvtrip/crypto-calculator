@@ -1,4 +1,4 @@
-
+import COIN_RANKING_API_KEY from "/apikey.js"
 let investLink = document.getElementById('invest-link');
 let investAmount = document.getElementById('invest-amount');
 let cryptoName = document.getElementById('crypto-name');
@@ -21,32 +21,13 @@ investLink.addEventListener('click', changeCalculator =>{
       }
 }); 
 
-//fetching coin data from coinranking's api - json
-
-// fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "coinranking1.p.rapidapi.com",
-// 		"x-rapidapi-key": "eea92ee8b8mshf9664ba0f036a02p1cc450jsneb4c624ca4fa"
-// 	}
-// })
-// .then(response => {
-// 	response.json()
-//   .then(response=>{
-//     console.log(response)
-//   });
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
-
-//async-await implementation to get data
+//fetching coin data using an async-await implementation 
 const getCoinData = async () =>{
     const response = await fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-        "x-rapidapi-key": "eea92ee8b8mshf9664ba0f036a02p1cc450jsneb4c624ca4fa"
+        "x-rapidapi-key": COIN_RANKING_API_KEY
       }
     })
     const coinData = await response.json();
