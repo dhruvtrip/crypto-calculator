@@ -22,30 +22,26 @@ investLink.addEventListener('click', changeCalculator =>{
       }
 }); 
 
-//fetching coin data using an async-await implementation 
-const getCoinData = async () =>{
-    const response = await fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-        "x-rapidapi-key": COIN_RANKING_API_KEY
-      }
-    })
-    const coinData = await response.json();
-    //console.log(coinData); 
-    
-    //parsing through json response to get crypto currency prices
-    let coinsArray = coinData.data.coins;
-      coinsArray.forEach(element => {
-      console.log(element.price)
-    });  
-    
+//fetching coin data using an async-await implementation
+const getCoinData = async () => {
+  let response = await fetch("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&symbols=BTC%2CETH&tiers=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0", {
+          "method": "GET",
+          "headers": {
+            "x-rapidapi-host": "coinranking1.p.rapidapi.com",
+            "x-rapidapi-key": COIN_RANKING_API_KEY
+          }
+        }) 
+        return await response.json();// Logs the response return response;
 }
+getCoinData().then(responseData => (responseData?.data?.coins.forEach(element => console.log(element.price)))) //using optional chaining
+  .catch(err => console.log("ERROR"))
 
-getCoinData().catch(err => {
-  console.log("ERROR");
-});
 
+//parsing through json response to get crypto currency prices -- optimised above
+// const coinData = getCoinData();
+// console.log(coinData)
+// let coinsArray = coinData.data.coins;
+// coinsArray.forEach(element => console.log(element.price));  
 
 //add click event on the crypto name tag
 cryptoName.addEventListener('click', showCryptoList=>{
