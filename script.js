@@ -28,7 +28,7 @@ const getCoinData = async () => {
           "method": "GET",
           "headers": {
             "x-rapidapi-host": "coinranking1.p.rapidapi.com",
-            "x-rapidapi-key": COIN_RANKING_API_KEY
+            "x-rapidapi-key": COIN_RANKING_API_KEY //hidden private key
           }
         }) 
         return await response.json();// Logs the response return response;
